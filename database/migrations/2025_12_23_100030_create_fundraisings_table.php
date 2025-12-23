@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('fundraisings', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug');
+            $table->unsignedBigInteger('target_amount');
+            $table->text('about');
+            $table->boolean('is_active');
+            $table->boolean('has_finished');
+            $table->string('thumbnail');
+            $table->foreignId('fundraiser_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
