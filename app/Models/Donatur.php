@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Fundraising;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Donatur extends Model
 {
@@ -20,4 +21,8 @@ class Donatur extends Model
         'is_paid',
         'proof',
     ];
+
+    public function fundraising() {
+        return $this->belongsTo(Fundraising::class);
+    }
 }
