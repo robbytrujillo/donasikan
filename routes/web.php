@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('donaturs', DonaturController::class)
             ->middleware('role:owner');
+            
         Route::resource('fundraisers', FundraiserController::class)
             ->middleware('role:owner')->except('index');
 
