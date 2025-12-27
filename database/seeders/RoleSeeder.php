@@ -29,5 +29,7 @@ class RoleSeeder extends Seeder
             'email' => 'robbyowner@donasikan.com',
             'password' => bcrypt('qwerty123')
         ]);
+
+        $userOwner->assignRole($ownerRole);
     }
 }
