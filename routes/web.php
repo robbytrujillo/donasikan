@@ -47,10 +47,15 @@ Route::middleware('auth')->group(function () {
             ->middleware('role:owner|fundraiser');
         
         Route::post('/fundraising_phases/update/{fundraising}', [FundraisingPhaseController::class, 'store'])
-            ->middleware('role:fundraiser');
+            ->middleware('role:fundraiser')
+            ->name('fundraising_phases.store');
             
         Route::resource('fundraisings', FundraisingController::class)
             ->middleware('role:owner|fundraiser');
+
+        Route::post('/fundraising/active/{fundraising}', [FundraisingController::class, 'activate_fundraising'])
+            ->middleware('role:owner')
+            ->name('fundraising_withdrawals.activate_fundraising');
     });
 });
 
