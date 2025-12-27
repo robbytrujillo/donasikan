@@ -16,6 +16,48 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
+                @role('owner')
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
+                        {{ __('Categories') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('admin.donaturs.index')" :active="request()->routeIs('admin.donaturs.index')">
+                        {{ __('Donaturs') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('admin.fundraising_withdrawals.index')" :active="request()->routeIs('admin.fundraising_withdrawals.index')">
+                        {{ __('Withdrawals') }}
+                    </x-nav-link>
+                </div>
+                @endrole
+
+                @role('owner|fundraiser')
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('admin.fundraisings.index')" :active="request()->routeIs('admin.fundraisings.index')">
+                        {{ __('Fundraisings') }}
+                    </x-nav-link>
+                </div>
+                @endrole
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('admin.fundraisers.index')" :active="request()->routeIs('admin.fundraisers.index')">
+                        {{ __('Fundraisers') }}
+                    </x-nav-link>
+                </div>
+                
+                @role('fundraiser')
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('admin.my-withdrawals')" :active="request()->routeIs('admin.my-withdrawals')">
+                        {{ __('MyWithdrawals') }}
+                    </x-nav-link>
+                </div>
+                @endrole
             </div>
 
             <!-- Settings Dropdown -->
@@ -71,6 +113,48 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
+
+        @role('owner')
+        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+            <x-responsive-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
+                {{ __('Categories') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+            <x-responsive-nav-link :href="route('admin.donaturs.index')" :active="request()->routeIs('admin.donaturs.index')">
+                {{ __('Donaturs') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+            <x-responsive-nav-link :href="route('admin.fundraising_withdrawals.index')" :active="request()->routeIs('admin.fundraising_withdrawals.index')">
+                {{ __('Withdrawals') }}
+            </x-responsive-nav-link>
+        </div>
+        @endrole
+
+        @role('owner|fundraiser')
+        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+            <x-responsive-nav-link :href="route('admin.fundraisings.index')" :active="request()->routeIs('admin.fundraisings.index')">
+                {{ __('Fundraisings') }}
+            </x-responsive-nav-link>
+        </div>
+        @endrole
+        
+        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+            <x-responsive-nav-link :href="route('admin.fundraisers.index')" :active="request()->routeIs('admin.fundraisers.index')">
+                {{ __('Fundraisers') }}
+            </x-responsive-nav-link>
+        </div>
+        
+        @role('fundraiser')
+        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+            <x-responsive-nav-link :href="route('admin.my-withdrawals')" :active="request()->routeIs('admin.my-withdrawals')">
+                {{ __('MyWithdrawals') }}
+            </x-responsive-nav-link>
+        </div>
+        @endrole
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
