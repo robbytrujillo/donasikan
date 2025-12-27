@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FundraiserController;
 use App\Http\Controllers\FundraisingController;
 use App\Http\Controllers\FundraisingPhaseController;
@@ -39,7 +40,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('fundraising_withdrawals', FundraisingWithdrawalController::class)
             ->middleware('role:owner|fundraiser');
         
-        Route::post('/fundraising_withdrawals/request/{fundraising}', FundraisingWithdrawalController::class)
+        Route::post('/fundraising_withdrawals/request/{fundraising}', [FundraisingWithdrawalController::class, 'store'])
             ->middleware('role:fundraiser')
             ->name('fundraising_withdrawals.store');
 
@@ -56,6 +57,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/fundraising/active/{fundraising}', [FundraisingController::class, 'activate_fundraising'])
             ->middleware('role:owner')
             ->name('fundraising_withdrawals.activate_fundraising');
+
+        Route::post('/fundraiser/apply', [DashboardController::class, 'apply_fundraiser'])
+            ->name('fundraiser.apply');
+        
+        Route::get('/my-withdrawals', [DashboardController::class, 'my_withdrawals'])
+            ->name('my-withdrawals');
+        
+        Route::get('/my-withdrawals/details/{fundraisingWithdrawal}', [DashboardController::class, 'my_withdrawals.store'])
+            ->name('my-withdrawals.detail');
     });
 });
 
