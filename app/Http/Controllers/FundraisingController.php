@@ -24,6 +24,14 @@ class FundraisingController extends Controller
     }
 
     /**
+     * Show the form for activate fundraising a new resource.
+     */
+    public function activate_fundraising() 
+    {
+        // 
+    }
+
+    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
