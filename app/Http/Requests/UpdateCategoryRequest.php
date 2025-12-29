@@ -4,14 +4,15 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreDonationRequest extends FormRequest
+class UpdateCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        // return false;
+        return $this->user()->hasAnyRole(['owner']);
     }
 
     /**
@@ -24,9 +25,7 @@ class StoreDonationRequest extends FormRequest
         return [
             //
             'name' => ['required', 'string', 'max:255'],
-            'phone_number' => ['required', 'string'],
-            'proof' => ['required', 'image', 'mimes:png,jpg,jpeg,svg'],
-            'notes' => ['required', 'string', 'max:65535'],
+            'icon' => ['sometimes', 'image', 'mimes:svg,png,jpg,jpeg'],
         ];
     }
 }
