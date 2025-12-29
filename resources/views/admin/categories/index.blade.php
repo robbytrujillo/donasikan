@@ -4,7 +4,7 @@
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
                 {{ __('Manage Categories') }}
             </h2>
-            <a href="{{ 'admin.categories.create' }}" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
+            <a href="{{ route('admin.categories.create') }}" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
                 Add New
             </a>
         </div>
