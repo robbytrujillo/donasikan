@@ -4,15 +4,15 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCategoryRequest extends FormRequest
+class StoreFundraisingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        // return true;
-        return $this->user()->hasAnyRole(['owner']);
+        // return false;
+        return $this->user()->hasAnyRole(['fundraiser']);
     }
 
     /**
@@ -24,8 +24,11 @@ class StoreCategoryRequest extends FormRequest
     {
         return [
             //
-            'name' => ['required', 'string', 'max:255'],
-            'icon' => ['required', 'image', 'mimes:svg,png,jpg,jpeg'],
+            'name' => ['required','string','max:255'],
+            'category_id' => ['required','integer'],
+            'target_amount' => ['required','integer'],
+            'about' => ['required','string','max:65535'],
+            'thumbnail' => ['required','image','mimes:svg,jpg,png,jpeg'],
         ];
     }
 }
