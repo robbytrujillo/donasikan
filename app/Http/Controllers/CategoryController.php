@@ -42,6 +42,8 @@ class CategoryController extends Controller
                 $iconPath = $request->file('icon')->store('icons', 'public');
 
                 $validated['icon'] = $iconPath;
+            } else {
+                $iconPath = 'images/icon-category-default.png';
             }
         });
     }
