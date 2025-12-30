@@ -48,7 +48,7 @@ class User extends Authenticatable
         ];
     }
 
-    public function fundraisers() {
+    public function fundraiser() {
         return $this->hasOne(Fundraiser::class);
     }
 }
