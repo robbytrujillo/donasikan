@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreCategoryRequest;
@@ -41,11 +42,17 @@ class CategoryController extends Controller
             if ($request->hasFile('icon')) {
                 $iconPath = $request->file('icon')->store('icons', 'public');
 
-                $validated['icon'] = $iconPath;
+                $validated['icon'] = $iconPath; //storage/icons/robby.png
             } else {
                 $iconPath = 'images/icon-category-default.png';
             }
+
+            $validated['slug'] = Str::slug($validated['name']);
+
+            $category = Category::create($validated);
         });
+
+        return redirect()->route('admin.categories.index');
     }
 
     /**
