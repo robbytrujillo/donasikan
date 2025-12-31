@@ -88,6 +88,7 @@ class FundraisingController extends Controller
     public function show(Fundraising $fundraising)
     {
         //
+        return view('admin.fundraisings.show', compact('fundraising'));
     }
 
     /**
