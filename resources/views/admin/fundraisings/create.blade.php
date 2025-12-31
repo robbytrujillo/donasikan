@@ -17,7 +17,7 @@
                     @endforeach
                 @endif
                 
-                <form method="POST" action="#" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.fundraisings.store') }}" enctype="multipart/form-data">
                     @csrf
 
                     <div>
@@ -27,29 +27,32 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="thumbnail" :value="__('thumbnail')" />
+                        <x-input-label for="thumbnail" :value="__('Thumbnail')" />
                         <x-text-input id="thumbnail" class="block mt-1 w-full" type="file" name="thumbnail" required autofocus autocomplete="thumbnail" />
                         <x-input-error :messages="$errors->get('thumbnail')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="target_amount" :value="__('target_amount')" />
+                        <x-input-label for="target_amount" :value="__('Target Amount')" />
                         <x-text-input id="target_amount" class="block mt-1 w-full" type="number" name="target_amount" :value="old('target_amount')" required autofocus autocomplete="target_amount" />
                         <x-input-error :messages="$errors->get('target_amount')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="category" :value="__('category')" />
+                        <x-input-label for="category" :value="__('Category')" />
                         
                         <select name="category_id" id="category_id" class="py-3 rounded-lg pl-3 w-full border border-slate-300">
                             <option value="">Choose category</option>
+                            @foreach ($categories as $category)    
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
                         </select>
 
                         <x-input-error :messages="$errors->get('category')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="about" :value="__('about')" />
+                        <x-input-label for="about" :value="__('About')" />
                         <textarea name="about" id="about" cols="30" rows="5" class="border border-slate-300 rounded-xl w-full"></textarea>
                         <x-input-error :messages="$errors->get('about')" class="mt-2" />
                     </div>
