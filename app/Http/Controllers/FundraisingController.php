@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Fundraising;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +36,9 @@ class FundraisingController extends Controller
     public function create()
     {
         //
+        $categories = Category::all();
+        
+        return view('admin.fundraisings.create', compact('categories'));
     }
 
     /**
