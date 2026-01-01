@@ -39,17 +39,18 @@
                 <hr class="my-5">
                 <div class="flex flex-row items-center justify-between">
                     <div>
-                        <h3 class="text-xl font-bold text-indigo-950">Rp 120902</h3>
+                        <h3 class="text-xl font-bold text-indigo-950">Rp {{ number_format($totalDonations, 0, ',', '.') }}</h3>
                         <p class="text-sm text-slate-500">Funded</p>
                     </div>
                     <div class="w-[400px] rounded-full h-2.5 bg-slate-300">
-                        <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 12%"></div>
+                        <div class="bg-indigo-600 h-2.5 rounded-full" style="width: {{ $percentage }}%"></div>
                     </div>
                     <div>
                         <h3 class="text-xl font-bold text-indigo-950">Rp {{ number_format($fundraising->target_amount, 0, ',', '.') }}</h3>
                         <p class="text-sm text-slate-500">Goal</p>
                     </div>
                 </div>
+                
                 @if ($goalReached)
                     <hr class="my-5">
                     <h3 class="text-2xl font-bold text-indigo-950">Withdraw Donations</h3>
@@ -92,19 +93,22 @@
                     </div>
                 </div>
 
-                @for($i = 0; $i < 5; $i++)
+                {{--  @for($i = 0; $i < 5; $i++)  --}}
+                @forelse($fundraising->donaturs as $donatur)
                 <div class="flex flex-row items-center justify-between item-card gap-y-10">
                     <div class="flex flex-row items-center gap-x-3">
                         <div class="flex flex-col">
-                            <h3 class="text-xl font-bold text-indigo-950">Rp 1029123</h3>
-                            <p class="text-sm text-slate-500">Spora Adrian</p>
+                            <h3 class="text-xl font-bold text-indigo-950">Rp {{ number_format($donatur->total_amount, 0, ',', '.') }}</h3>
+                            <p class="text-sm text-slate-500">{{ $donatur->name }}</p>
                         </div>
                     </div>
 
-                    <p class="text-sm text-slate-500">Semoga lekas sembuh dan diberkan ketabahan besar menghadapi seluuruh ujian dari Allah</p>
+                    <p class="text-sm text-slate-500">{{ $donatur->notes }}</p>
                     
                 </div>
-                @endfor
+                @empty
+                    <p><i>Belum ada yang memberikan donasi</i></p>
+                @endforelse
                 
             </div>
         </div>
