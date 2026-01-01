@@ -24,6 +24,12 @@ class FundraisingController extends Controller
 
         $fundraisingQuery = Fundraising::with(['category', 'fundraiser', 'donaturs'])->orderByDesc('id');
 
+        // 🔹 OWNER: lihat SEMUA fundraising
+        if ($user->hasRole('owner')) {
+            $fundraisings = $fundraisingQuery->paginate(10);
+            return view('admin.fundraisings.index', compact('fundraisings'));
+        }
+
         if ($user->hasRole('fundraiser')) {
             $fundraisingQuery->whereHas('fundraiser', function ($query) use ($user) {
                 $query->where('user_id', $user->id);
@@ -49,9 +55,17 @@ class FundraisingController extends Controller
     /**
      * Show the form for activate fundraising a new resource.
      */
-    public function activate_fundraising() 
+    public function activate_fundraising(Fundraising $fundraising) 
     {
-        // 
+        //
+        DB::transaction(function () use ($fundraising) {
+
+            $fundraising->update([
+                'is_active' => true
+            ]);
+        });
+
+        return redirect()->route('admin.fundraisings.show', $fundraising); 
     }
 
     /**

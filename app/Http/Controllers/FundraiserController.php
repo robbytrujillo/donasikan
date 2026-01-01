@@ -19,6 +19,7 @@ class FundraiserController extends Controller
         $fundraisers = Fundraiser::orderByDesc('id')->get();
         $fundraiserStatus = null;
 
+
         if ($user->fundraiser()->exists()) {
             $isFundraiserActive = $user->fundraiser->is_active;
             $fundraiserStatus = $isFundraiserActive ? 'Active' : 'Pending';
