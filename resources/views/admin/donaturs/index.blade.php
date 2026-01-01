@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex flex-row justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <div class="flex flex-row items-center justify-between">
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">
                 {{ __('Manage Donaturs') }}
             </h2>
         </div>
@@ -9,37 +9,46 @@
     <div>
         
     </div>
-    <div class="list-donaturs py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-10 flex flex-col gap-y-5">
-                <div class="item-card flex flex-row justify-between items-center">
-                    <div class="flex flex-row items-center gap-x-3">
-                        <img src="https://images.unsplash.com/photo-1611174797136-5e167ea90d6c?q=80&w=3120&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
-                        <div class="flex flex-col">
-                            <h3 class="text-indigo-950 text-xl font-bold">Villio Jack</h3>
-                            <p class="text-slate-500 text-sm">12 Jan 2024</p>
+    <div class="py-12 list-donaturs">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="flex flex-col p-10 overflow-hidden bg-white shadow-sm sm:rounded-lg gap-y-5">
+
+                @forelse ($donaturs as $donatur)
+                    <div class="flex flex-row items-center justify-between item-card">
+                        <div class="flex flex-row items-center gap-x-3">
+                            <img src="{{ Storage::url($donatur->fundraising->thumbnail) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
+                            <div class="flex flex-col">
+                                <h3 class="text-xl font-bold text-indigo-950">{{ $donatur->name }}</h3>
+                                <p class="text-sm text-slate-500">{{ $donatur->created_at->format('M d, y') }}</p>
+                            </div>
+                        </div> 
+                        <div class="flex-col hidden md:flex">
+                            <p class="text-sm text-slate-500">Amount</p>
+                            <h3 class="text-xl font-bold text-indigo-950">Rp {{ number_format($donatur->total_amount, 0, '.', '.') }}</h3>
                         </div>
-                    </div> 
-                    <div class="hidden md:flex flex-col">
-                        <p class="text-slate-500 text-sm">Amount</p>
-                        <h3 class="text-indigo-950 text-xl font-bold">Rp 80000</h3>
-                    </div>
-                    <span class="w-fit text-sm font-bold py-2 px-3 rounded-full bg-green-500 text-white">
-                        ACTIVE
-                    </span>
-                    <span class="w-fit text-sm font-bold py-2 px-3 rounded-full bg-orange-500 text-white">
-                        PENDING
-                    </span>             
-                    <div class="hidden md:flex flex-row items-center gap-x-3">
-                        <form action="#" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <button type="submit" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
+
+                        @if ($donatur->is_paid)
+                            <span class="px-3 py-2 text-sm font-bold text-white bg-green-500 rounded-full w-fit">
+                                PAID
+                            </span>
+                        @else
+                            <span class="px-3 py-2 text-sm font-bold text-white bg-orange-500 rounded-full w-fit">
+                                PENDING
+                            </span>
+                        @endif
+                                     
+                        <div class="flex-row items-center hidden md:flex gap-x-3">
+                             <a href="{{ route('admin.donaturs.show', $donatur) }}" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
                                 View Details
-                            </button>
-                        </form>
-                    </div>
-                </div>
+                            </a>
+                        </div>
+                    </div>                    
+                @empty
+                    <p>
+                        Belum ada donatur terbaru untuk saat ini
+                    </p>
+                @endforelse
+                
             </div>
         </div>
     </div>

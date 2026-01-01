@@ -13,7 +13,7 @@ class DonaturController extends Controller
     public function index()
     {
         //
-        $donaturs = Donatur::with(['fundaising'])->orderByDesc('id')->paginate(5);
+        $donaturs = Donatur::with(['fundraising'])->orderByDesc('id')->paginate(5);
         
         return view('admin.donaturs.index', compact('donaturs'));
     }
@@ -32,6 +32,7 @@ class DonaturController extends Controller
     public function store(Request $request)
     {
         //
+        
     }
 
     /**
@@ -40,6 +41,7 @@ class DonaturController extends Controller
     public function show(Donatur $donatur)
     {
         //
+        return view('admin.donaturs.show', compact('donatur'));
     }
 
     /**
