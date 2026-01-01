@@ -88,7 +88,9 @@ class FundraisingController extends Controller
     public function show(Fundraising $fundraising)
     {
         //
-        return view('admin.fundraisings.show', compact('fundraising'));
+        $totalDonations = $fundraising->totalReachedAmount();
+        $goalReached = $totalDonations >= $fundraising->target_amount;
+        return view('admin.fundraisings.show', compact('fundraising', 'goalReached'));
     }
 
     /**

@@ -46,42 +46,43 @@
                         <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 12%"></div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-indigo-950">Rp 983989834</h3>
+                        <h3 class="text-xl font-bold text-indigo-950">Rp {{ number_format($fundraising->target_amount, 0, ',', '.') }}</h3>
                         <p class="text-sm text-slate-500">Goal</p>
                     </div>
                 </div>
-                <hr class="my-5">
+                @if ($goalReached)
+                    <hr class="my-5">
+                    <h3 class="text-2xl font-bold text-indigo-950">Withdraw Donations</h3>
 
-                <h3 class="text-2xl font-bold text-indigo-950">Withdraw Donations</h3>
+                    <form method="POST" action="#" enctype="multipart/form-data">
+                        @csrf
 
-                <form method="POST" action="#" enctype="multipart/form-data">
-                    @csrf
+                        <div>
+                            <x-input-label for="bank_name" :value="__('bank_name')" />
+                            <x-text-input id="bank_name" class="block w-full mt-1" type="text" name="bank_name" :value="old('bank_name')" required autofocus autocomplete="bank_name" />
+                            <x-input-error :messages="$errors->get('bank_name')" class="mt-2" />
+                        </div>
 
-                    <div>
-                        <x-input-label for="bank_name" :value="__('bank_name')" />
-                        <x-text-input id="bank_name" class="block w-full mt-1" type="text" name="bank_name" :value="old('bank_name')" required autofocus autocomplete="bank_name" />
-                        <x-input-error :messages="$errors->get('bank_name')" class="mt-2" />
-                    </div>
+                        <div class="mt-4">
+                            <x-input-label for="bank_account_name" :value="__('bank_account_name')" />
+                            <x-text-input id="bank_account_name" class="block w-full mt-1" type="text" name="bank_account_name" :value="old('bank_account_name')" required autofocus autocomplete="bank_account_name" />
+                            <x-input-error :messages="$errors->get('bank_account_name')" class="mt-2" />
+                        </div>
 
-                    <div class="mt-4">
-                        <x-input-label for="bank_account_name" :value="__('bank_account_name')" />
-                        <x-text-input id="bank_account_name" class="block w-full mt-1" type="text" name="bank_account_name" :value="old('bank_account_name')" required autofocus autocomplete="bank_account_name" />
-                        <x-input-error :messages="$errors->get('bank_account_name')" class="mt-2" />
-                    </div>
+                        <div class="mt-4">
+                            <x-input-label for="bank_account_number" :value="__('bank_account_number')" />
+                            <x-text-input id="bank_account_number" class="block w-full mt-1" type="text" name="bank_account_number" :value="old('bank_account_number')" required autofocus autocomplete="bank_account_number" />
+                            <x-input-error :messages="$errors->get('bank_account_number')" class="mt-2" />
+                        </div>
 
-                    <div class="mt-4">
-                        <x-input-label for="bank_account_number" :value="__('bank_account_number')" />
-                        <x-text-input id="bank_account_number" class="block w-full mt-1" type="text" name="bank_account_number" :value="old('bank_account_number')" required autofocus autocomplete="bank_account_number" />
-                        <x-input-error :messages="$errors->get('bank_account_number')" class="mt-2" />
-                    </div>
-
-                    <div class="flex items-center justify-end mt-4">
-            
-                        <button type="submit" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
-                            Request Withdraw
-                        </button>
-                    </div>
-                </form>
+                        <div class="flex items-center justify-end mt-4">
+                
+                            <button type="submit" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
+                                Request Withdraw
+                            </button>
+                        </div>
+                    </form>
+                @endif
 
                 <hr class="my-5">
 
