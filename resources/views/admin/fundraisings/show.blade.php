@@ -78,7 +78,7 @@
                     <hr class="my-5">
                     <h3 class="text-2xl font-bold text-indigo-950">Withdraw Donations</h3>
 
-                    <form method="POST" action="#" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.fundraising_withdrawals.store', $fundraising) }}" enctype="multipart/form-data">
                         @csrf
 
                         <div>
