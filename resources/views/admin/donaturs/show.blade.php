@@ -53,6 +53,8 @@
                 <h3 class="mb-5 text-xl font-bold text-indigo-950">Proof of Payment</h3>
                 <img src="{{ Storage::url($donatur->proof) }}" alt="{{ Storage::url($donatur->proof) }}" class="rounded-2xl object-cover w-[300px] h-[200px] mb-3">
                 <hr class="my-5">
+
+                @if (!$donatur->is_paid)
                 <form action="{{ route('admin.donaturs.update', $donatur) }}" method="POST">
                     @csrf
                     @method('PUT')
@@ -60,6 +62,8 @@
                         Confirm Donation
                     </button>
                 </form>
+                @endif
+
             </div>
         </div>
     </div>
