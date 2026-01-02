@@ -63,6 +63,7 @@ class FundraisingWithdrawalController extends Controller
     public function show(FundraisingWithdrawal $fundraisingWithdrawal)
     {
         //
+        return view('admin.fundraising_withdrawals.show', compact('fundraisingWithdrawal'));
     }
 
     /**
