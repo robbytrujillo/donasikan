@@ -39,6 +39,6 @@ class DashboardController extends Controller
 
     public function my_withdrawals_detail(FundraisingWithdrawal $fundraisingWithdrawal) {
         
-        return view('admin.my_withdrawals.details', compact('fundraisingWithdrawals'));
+        return view('admin.my_withdrawals.details', compact('fundraisingWithdrawal'));
     }
 }

@@ -28,14 +28,25 @@
                             <p class="text-sm text-slate-500">Date</p>
                             <h3 class="text-xl font-bold text-indigo-950">{{ $withdrawal->created_at->format('M d, Y') }}</h3>
                         </div>
-                        <span class="px-3 py-2 text-sm font-bold text-white bg-green-500 rounded-full w-fit">
-                            SUCCESS
-                        </span>
-                        <span class="px-3 py-2 text-sm font-bold text-white bg-orange-500 rounded-full w-fit">
-                            PENDING
-                        </span> 
+
+                        @if ($withdrawal->has_sent)
+                            @if ($withdrawal->has_received)
+                                <span class="px-3 py-2 text-sm font-bold text-white bg-green-500 rounded-full w-fit">
+                                    DELIVERED
+                                </span>
+                            @else
+                                <span class="px-3 py-2 text-sm font-bold text-white bg-indigo-500 rounded-full w-fit">
+                                    PROCCESS
+                                </span>
+                            @endif
+                        @else
+                            <span class="px-3 py-2 text-sm font-bold text-white bg-orange-500 rounded-full w-fit">
+                                PENDING
+                            </span>
+                        @endif
+                         
                         <div class="flex-row items-center hidden md:flex gap-x-3">
-                            <a href="#" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
+                            <a href="{{ route('admin.my-withdrawals.details', $withdrawal) }}" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
                                 View Details
                             </a>
                         </div>

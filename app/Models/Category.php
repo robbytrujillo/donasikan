@@ -19,7 +19,7 @@ class Category extends Model
     ];
 
     // ORM
-    public function fundrisings() {
+    public function fundraisings() {
         return $this->hasMany(Fundraising::class);
     }
 }

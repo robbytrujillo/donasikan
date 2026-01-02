@@ -24,7 +24,7 @@ class StoreFundraisingWithdrawalRequest extends FormRequest
     {
         return [
             //
-            'name' => ['required', 'string', 'max:255'],
+            'bank_name' => ['required', 'string', 'max:255'],
             'bank_account_name' => ['required', 'string', 'max:255'],
             'bank_account_number' => ['required', 'string', 'max:255'],
         ];
