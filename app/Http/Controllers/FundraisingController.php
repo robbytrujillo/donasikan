@@ -106,6 +106,8 @@ class FundraisingController extends Controller
         $totalDonations = $fundraising->totalReachedAmount();
 
         $goalReached = $totalDonations >= $fundraising->target_amount;
+
+        $hasRequestedWithdrawal = $fundraising->withdrawals()->exists();
         
         $percentage = ($totalDonations / $fundraising->target_amount) * 100;
 
@@ -113,7 +115,7 @@ class FundraisingController extends Controller
             $percentage = 100;
         }
 
-        return view('admin.fundraisings.show', compact('fundraising', 'goalReached', 'percentage', 'totalDonations'));
+        return view('admin.fundraisings.show', compact('hasRequestedWithdrawal', 'fundraising', 'goalReached', 'percentage', 'totalDonations'));
     }
 
     /**

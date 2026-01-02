@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
             ->name('fundraisers.index');
 
         Route::resource('fundraising_withdrawals', FundraisingWithdrawalController::class)
-            ->middleware('role:owner|fundraiser');
+            ->middleware('role:owner|fundraiser')->except(['store', 'create']);
         
         Route::post('/fundraising_withdrawals/request/{fundraising}', [FundraisingWithdrawalController::class, 'store'])
             ->middleware('role:fundraiser')
@@ -54,7 +54,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('fundraisings', FundraisingController::class)
             ->middleware('role:owner|fundraiser');
 
-        Route::post('/fundraising/active/{fundraising}', [FundraisingController::class, 'activate_fundraising'])
+        Route::post('/fundraisings/active/{fundraising}', [FundraisingController::class, 'activate_fundraising'])
             ->middleware('role:owner')
             ->name('fundraising_withdrawals.activate_fundraising');
 
@@ -64,7 +64,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/my-withdrawals', [DashboardController::class, 'my_withdrawals'])
             ->name('my-withdrawals');
         
-        Route::get('/my-withdrawals/details/{fundraisingWithdrawal}', [DashboardController::class, 'my_withdrawals.detail'])
+        Route::get('/my-withdrawals/details/{fundraisingWithdrawal}', [DashboardController::class, 'my_withdrawals.details'])
             ->name('my-withdrawals.detail');
     });
 });

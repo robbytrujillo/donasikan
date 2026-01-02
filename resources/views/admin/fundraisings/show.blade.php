@@ -75,6 +75,7 @@
                 </div>
                 
                 @if ($goalReached)
+                @if (!$hasRequestedWithdrawal)
                     <hr class="my-5">
                     <h3 class="text-2xl font-bold text-indigo-950">Withdraw Donations</h3>
 
@@ -106,6 +107,7 @@
                             </button>
                         </div>
                     </form>
+                @endif
                 @endif
 
                 <hr class="my-5">

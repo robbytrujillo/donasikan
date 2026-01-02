@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('fundraising_withdrawals', function (Blueprint $table) {
             $table->id();
-            $table->string('proof');
+            $table->string('proof')->nullable()->change();
             $table->string('bank_name');
             $table->string('bank_account_number');
             $table->string('bank_account_name');

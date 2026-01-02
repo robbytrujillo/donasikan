@@ -47,10 +47,12 @@ class FundraisingWithdrawalController extends Controller
             $validated['has_sent'] = false;
             $validated['amount_requested'] = $fundraising->totalReachedAmount();
             $validated['amount_received'] = 0;
-            $validated['proof'] = 'proofs/dummydelivery1.png';
+            $validated['proof'] = 'proofs/buktidummy1.png';
 
             $fundraising->withdrawals()->create($validated);
         });
+
+        return redirect()->route('admin.my-withdrawals');
     }
 
     /**
