@@ -83,21 +83,25 @@
                     </div>  --}}
                 </div>
                 <hr class="my-5">
-                <h3 class="text-indigo-950 text-xl font-bold mb-5">Already Proccessed</h3>
-                <img src="https://i.pinimg.com/236x/68/ed/dc/68eddcea02ceb29abde1b1c752fa29eb.jpg" alt="" class="rounded-2xl object-cover w-[300px] h-[200px] mb-3">
-                <hr class="my-5">
-                <form action="#" method="POST">
-                    @csrf
-                    @method('PUT')
-                    <div class="mt-4 w-fit">
-                        <x-input-label for="proof" :value="__('proof')" />
-                        <x-text-input id="proof" class="mb-7 block mt-1 w-full" type="file" name="proof" required autofocus autocomplete="proof" />
-                        <x-input-error :messages="$errors->get('proof')" class="mt-2" />
-                    </div>
-                    <button type="submit" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
-                        Confirm Withdrawal
-                    </button>
-                </form>
+
+                @if ($fundraisingWithdrawal->has_sent)
+                    <h3 class="text-indigo-950 text-xl font-bold mb-5">Already Proccessed</h3>
+                    <img src="https://i.pinimg.com/236x/68/ed/dc/68eddcea02ceb29abde1b1c752fa29eb.jpg" alt="" class="rounded-2xl object-cover w-[300px] h-[200px] mb-3">
+                @else
+                    <hr class="my-5">
+                    <form action="{{ route('admin.fundraising_withdrawals.update', $fundraisingWithdrawal) }}" enctype="multipart/form-data" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <div class="mt-4 w-fit">
+                            <x-input-label for="proof" :value="__('proof')" />
+                            <x-text-input id="proof" class="mb-7 block mt-1 w-full" type="file" name="proof" required autofocus autocomplete="proof" />
+                            <x-input-error :messages="$errors->get('proof')" class="mt-2" />
+                        </div>
+                        <button type="submit" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
+                            Confirm Withdrawal
+                        </button>
+                    </form>
+                @endif
             </div>
         </div>
     </div>
