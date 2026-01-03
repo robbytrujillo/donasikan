@@ -41,4 +41,8 @@ class DashboardController extends Controller
         
         return view('admin.my_withdrawals.details', compact('fundraisingWithdrawal'));
     }
+
+    public function index() {
+        $user = Auth::user();
+    }
 }
