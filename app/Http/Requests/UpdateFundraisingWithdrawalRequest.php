@@ -12,7 +12,7 @@ class UpdateFundraisingWithdrawalRequest extends FormRequest
     public function authorize(): bool
     {
         // return false;
-        return $this->user()->hasAnyRole(['owner|fundraiser']);
+        return $this->user()->hasAnyRole(['owner']);
     }
 
     /**
@@ -24,7 +24,7 @@ class UpdateFundraisingWithdrawalRequest extends FormRequest
     {
         return [
             //
-            'proof' => ['required', 'string', 'mimes:png,svg,jpg,jpeg']
+            'proof' => ['required', 'image', 'mimes:png,svg,jpg,jpeg']
         ];
     }
 }

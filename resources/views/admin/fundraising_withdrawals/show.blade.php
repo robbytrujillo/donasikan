@@ -86,7 +86,7 @@
 
                 @if ($fundraisingWithdrawal->has_sent)
                     <h3 class="text-indigo-950 text-xl font-bold mb-5">Already Proccessed</h3>
-                    <img src="https://i.pinimg.com/236x/68/ed/dc/68eddcea02ceb29abde1b1c752fa29eb.jpg" alt="" class="rounded-2xl object-cover w-[300px] h-[200px] mb-3">
+                    <img src="{{ Storage::url($fundraisingWithdrawal->proof) }}" alt="" class="rounded-2xl object-cover w-[300px] h-[200px] mb-3">
                 @else
                     <hr class="my-5">
                     <form action="{{ route('admin.fundraising_withdrawals.update', $fundraisingWithdrawal) }}" enctype="multipart/form-data" method="POST">
