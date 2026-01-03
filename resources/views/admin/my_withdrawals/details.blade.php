@@ -76,38 +76,38 @@
                     </div>  --}}
                 </div>
                 <hr class="my-5">
-
-                
                     <h3 class="mb-5 text-xl font-bold text-indigo-950">Uang Sudah di Transfer:</h3>
                     <img src="{{ Storage::url($fundraisingWithdrawal->proof) }}" alt="" class="rounded-2xl object-cover w-[300px] h-[200px] mb-3">
                     <hr class="my-5">
-                    <h3 class="text-xl font-bold text-indigo-950">Have You Delivered Money?</h3>
-                    <form action="{{ route('admin.fundraising_withdrawals.store', $fundraisingWithdrawal->fundraising_id) }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        {{--  @method('PUT')  --}}
-                        <div>
-                            <x-input-label for="name" :value="__('Name')" />
-                            <x-text-input id="name" class="block w-full mt-1" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-                        </div>
-                        <div class="mt-4">
-                            <x-input-label for="notes" :value="__('notes')" />
-                            <textarea name="notes" id="notes" cols="30" rows="5" class="w-full border border-slate-300 rounded-xl"></textarea>
-                            <x-input-error :messages="$errors->get('notes')" class="mt-2" />
-                        </div>
-                        <div class="mt-4 w-fit">
-                            <x-input-label for="photo" :value="__('photo')" />
-                            <x-text-input id="photo" class="block w-full mt-1 mb-7" type="file" name="photo" required autofocus autocomplete="photo" />
-                            <x-input-error :messages="$errors->get('photo')" class="mt-2" />
-                        </div>
-                        <button type="submit" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
-                            Update Donation
-                        </button>
-                    </form>
+
+                    @if (!$fundraisingWithdrawal->has_received)
+                        <h3 class="text-xl font-bold text-indigo-950">Have You Delivered Money?</h3>
+                        <form action="{{ route('admin.fundraising_phases.store', $fundraisingWithdrawal->fundraising_id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            {{--  @method('PUT')  --}}
+                            <div>
+                                <x-input-label for="name" :value="__('Name')" />
+                                <x-text-input id="name" class="block w-full mt-1" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                            </div>
+                            <div class="mt-4">
+                                <x-input-label for="notes" :value="__('notes')" />
+                                <textarea name="notes" id="notes" cols="30" rows="5" class="w-full border border-slate-300 rounded-xl"></textarea>
+                                <x-input-error :messages="$errors->get('notes')" class="mt-2" />
+                            </div>
+                            <div class="mt-4 w-fit">
+                                <x-input-label for="photo" :value="__('photo')" />
+                                <x-text-input id="photo" class="block w-full mt-1 mb-7" type="file" name="photo" required autofocus autocomplete="photo" />
+                                <x-input-error :messages="$errors->get('photo')" class="mt-2" />
+                            </div>
+                            <button type="submit" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
+                                Update Donation
+                            </button>
+                        </form>
+                    @endif
+
                 @endif
-                
             </div>
-            
         </div>
     </div>
 </x-app-layout>

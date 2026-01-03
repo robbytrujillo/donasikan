@@ -8,6 +8,7 @@ use App\Models\FundraisingPhase;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreFundraisingPhaseRequest;
 use App\Models\FundraisingWithdrawal;
+use Reflection;
 
 class FundraisingPhaseController extends Controller
 {
@@ -35,28 +36,31 @@ class FundraisingPhaseController extends Controller
         //
         DB::transaction(function () use ($request, $fundraising) {
             $validated = $request->validated();
+        
+            if ($request->hasFile('photo')) {
+                $photoPath = $request->file('photo')->store('photos', 'public');
+                $validated['photo'] = $photoPath;
+            }
+
+            $validated['fundraising_id'] = $fundraising->id;
+
+            $fundraisingPhase = FundraisingPhase::create($validated);
+
+            $withdrawalToUpdate = FundraisingWithdrawal::where('fundraising_id', $fundraising->id)
+                ->latest()
+                ->first();
+
+            $withdrawalToUpdate->update([
+                'has_received' => true
+            ]);
+
+            $fundraising->update([
+                'has_finished' => true
+            ]);
+
         });
 
-        if ($request->hasFile('photo')) {
-            $photoPath = $request->file('photo')->store('photos', 'public');
-            $validated['photo'] = $photoPath;
-        }
-
-        $validated['fundraising_id'] = $fundraising->id;
-
-        $fundraisingPhase = FundraisingPhase::create($validated);
-
-        $withdrawalToUpdate = FundraisingWithdrawal::where('fundraising_id', $fundraising->id)
-            ->latest()
-            ->first();
-
-        $withdrawalToUpdate->update([
-            'has_received' => true
-        ]);
-
-        $fundraising->update([
-            'has_finished' => true
-        ]);
+        return redirect()->route('admin.my-withdrawals');
     }
 
     /**
