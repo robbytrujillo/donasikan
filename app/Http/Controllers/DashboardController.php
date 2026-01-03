@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Donatur;
 use App\Models\Fundraiser;
 use App\Models\Fundraising;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\FundraisingWithdrawal;
+use Symfony\Component\String\TruncateMode;
 
 class DashboardController extends Controller
 {
@@ -47,6 +49,20 @@ class DashboardController extends Controller
         $user = Auth::user();
 
         $fundraisingsQuery = Fundraising::query();
+        
         $withdrawalsQuery = FundraisingWithdrawal::query();
+
+        if ($user->hasRole('fundraiser')) {
+            $fundraiserId = $user->fundraiser->id;
+
+            $fundraisingsQuery->where('fundraiser_id', $fundraiserId);
+            
+            $withdrawalsQuery->where('fundraiser_id', $fundraiserId);
+
+            $fundraisingIds = $fundraisingsQuery->pluck('id');
+
+            $donaturs = Donatur::whereIn('fundraising_id', $fundraisingIds)
+                ->where('is_paid', true);
+        }
     }
 }
