@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreFundraisingPhaseRequest;
+use App\Models\Fundraising;
 use App\Models\FundraisingPhase;
 use Illuminate\Http\Request;
 
@@ -26,7 +28,7 @@ class FundraisingPhaseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreFundraisingPhaseRequest $request, Fundraising $fundraising)
     {
         //
     }

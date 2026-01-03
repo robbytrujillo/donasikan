@@ -82,8 +82,9 @@
                     <img src="{{ Storage::url($fundraisingWithdrawal->proof) }}" alt="" class="rounded-2xl object-cover w-[300px] h-[200px] mb-3">
                     <hr class="my-5">
                     <h3 class="text-xl font-bold text-indigo-950">Have You Delivered Money?</h3>
-                    <form action="#" method="POST">
+                    <form action="{{ route('admin.fundraising_withdrawals.store', $fundraisingWithdrawal->fundraising_id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        {{--  @method('PUT')  --}}
                         <div>
                             <x-input-label for="name" :value="__('Name')" />
                             <x-text-input id="name" class="block w-full mt-1" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
