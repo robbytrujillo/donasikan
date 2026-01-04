@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./output.css" rel="stylesheet" />
+    <link href="{{ asset('css/output.css') }}" rel="stylesheet" />
     <link
       rel="icon"
       type="image/x-icon"
-      href="assets/images/icons/donasiku-logo.png"
+      href="{{asset('assets/images/icons/donasiku-logo.png')}}"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/js/flickity.min.css" media="screen" />
+    <link rel="stylesheet" href="{{asset('assets/js/flickity.min.css')}}" media="screen" />
   </head>
   <body class="font-poppins text-[#292E4B] bg-[#F6F9FC]">
     <section
@@ -26,7 +26,7 @@
         <nav class="pt-5 px-3 flex justify-between items-center">
           <div class="flex items-center gap-[10px]">
             <div class="w-10 h-10 flex shrink-0">
-              <img src="assets/images/icons/loc.svg" alt="icon" />
+              <img src="{{asset('assets/images/icons/loc.svg')}}" alt="icon" />
             </div>
             <div class="flex flex-col text-white">
               <p class="text-xs leading-[18px]">Location</p>
@@ -34,7 +34,7 @@
             </div>
           </div>
           <a href="" class="w-10 h-10 flex shrink-0">
-            <img src="assets/images/icons/menu.svg" alt="icon" />
+            <img src="{{asset('assets/images/icons/menu.svg')}}" alt="icon" />
           </a>
         </nav>
         <div class="mt-[30px] z-10">
@@ -46,7 +46,7 @@
         </div>
         <div class="w-full h-fit overflow-hidden -mt-[33px]">
           <img
-            src="assets/images/backgrounds/hero-background2.png"
+            src="{{asset('assets/images/backgrounds/hero-background2.png')}}"
             class="w-full h-full object-contain"
             alt="background"
           />
@@ -69,7 +69,7 @@
             >
               <div class="w-[60px] h-[60px] flex shrink-0 overflow-hidden">
                 <img
-                  src="assets/images/icons/icon natural disasters.png"
+                  src="{{asset('assets/images/icons/icon natural disasters.png')}}"
                   alt="icon"
                 />
               </div>
@@ -85,7 +85,7 @@
             >
               <div class="w-[60px] h-[60px] flex shrink-0 overflow-hidden">
                 <img
-                  src="assets/images/icons/icon animals rescue.png"
+                  src="{{asset('assets/images/icons/icon animals rescue.png')}}"
                   alt="icon"
                 />
               </div>
@@ -101,7 +101,7 @@
             >
               <div class="w-[60px] h-[60px] flex shrink-0 overflow-hidden">
                 <img
-                  src="assets/images/icons/icon medical treatment.png"
+                  src="{{asset('assets/images/icons/icon medical treatment.png')}}"
                   alt="icon"
                 />
               </div>
@@ -117,7 +117,7 @@
             >
               <div class="w-[60px] h-[60px] flex shrink-0 overflow-hidden">
                 <img
-                  src="assets/images/icons/icon small business.png"
+                  src="{{asset('assets/images/icons/icon small business.png')}}"
                   alt="icon"
                 />
               </div>
@@ -133,7 +133,7 @@
             >
               <div class="w-[60px] h-[60px] flex shrink-0 overflow-hidden">
                 <img
-                  src="assets/images/icons/icon natural disasters.png"
+                  src="{{asset('assets/images/icons/icon natural disasters.png')}}"
                   alt="icon"
                 />
               </div>
@@ -149,7 +149,7 @@
             >
               <div class="w-[60px] h-[60px] flex shrink-0 overflow-hidden">
                 <img
-                  src="assets/images/icons/icon medical treatment-1.png"
+                  src="{{asset('assets/images/icons/icon medical treatment-1.png')}}"
                   alt="icon"
                 />
               </div>
@@ -165,7 +165,7 @@
             >
               <div class="w-[60px] h-[60px] flex shrink-0 overflow-hidden">
                 <img
-                  src="assets/images/icons/icon building project.png"
+                  src="{{asset('assets/images/icons/icon building project.png')}}"
                   alt="icon"
                 />
               </div>
@@ -181,7 +181,7 @@
             >
               <div class="w-[60px] h-[60px] flex shrink-0 overflow-hidden">
                 <img
-                  src="assets/images/icons/icon animals rescue.png"
+                  src="{{asset('assets/images/icons/icon animals rescue.png')}}"
                   alt="icon"
                 />
               </div>
@@ -195,7 +195,7 @@
             >
               <div class="w-[60px] h-[60px] flex shrink-0 overflow-hidden">
                 <img
-                  src="assets/images/icons/icon animals rescue.png"
+                  src="{{asset('assets/images/icons/icon animals rescue.png')}}"
                   alt="icon"
                 />
               </div>
@@ -223,7 +223,7 @@
                   class="rounded-2xl w-full h-[120px] flex shrink-0 overflow-hidden"
                 >
                   <img
-                    src="assets/images/thumbnails/th1.png"
+                    src="{{asset('assets/images/thumbnails/th1.png')}}"
                     class="w-full h-full object-cover"
                     alt="thumbnail"
                   />
@@ -257,7 +257,7 @@
                   class="rounded-2xl w-full h-[120px] flex shrink-0 overflow-hidden"
                 >
                   <img
-                    src="assets/images/thumbnails/th2.png"
+                    src="{{asset('assets/images/thumbnails/th2.png')}}"
                     class="w-full h-full object-cover"
                     alt="thumbnail"
                   />
@@ -291,7 +291,7 @@
                   class="rounded-2xl w-full h-[120px] flex shrink-0 overflow-hidden"
                 >
                   <img
-                    src="assets/images/thumbnails/th3.png"
+                    src="{{asset('assets/images/thumbnails/th3.png')}}"
                     class="w-full h-full object-cover"
                     alt="thumbnail"
                   />
@@ -325,7 +325,7 @@
                   class="rounded-2xl w-full h-[120px] flex shrink-0 overflow-hidden"
                 >
                   <img
-                    src="assets/images/thumbnails/th4.png"
+                    src="{{asset('assets/images/thumbnails/th4.png')}}"
                     class="w-full h-full object-cover"
                     alt="thumbnail"
                   />
@@ -370,7 +370,7 @@
                 class="w-20 h-[90px] flex shrink-0 rounded-2xl overflow-hidden"
               >
                 <img
-                  src="assets/images/thumbnails/th5.png"
+                  src="{{asset('assets/images/thumbnails/th5.png')}}"
                   class="w-full h-full object-cover"
                   alt="thumbnail"
                 />
@@ -392,7 +392,7 @@
                     Putra Bangsa
                   </p>
                   <div class="flex shrink-0">
-                    <img src="assets/images/icons/tick-circle.svg" alt="icon" />
+                    <img src="{{asset('assets/images/icons/tick-circle.svg')}}" alt="icon" />
                   </div>
                 </div>
               </div>
@@ -406,7 +406,7 @@
                 class="w-20 h-[90px] flex shrink-0 rounded-2xl overflow-hidden"
               >
                 <img
-                  src="assets/images/thumbnails/th6.png"
+                  src="{{asset('assets/images/thumbnails/th6.png')}}"
                   class="w-full h-full object-cover"
                   alt="thumbnail"
                 />
@@ -428,7 +428,7 @@
                     Putra Bangsa
                   </p>
                   <div class="flex shrink-0">
-                    <img src="assets/images/icons/tick-circle.svg" alt="icon" />
+                    <img src="{{asset('assets/images/icons/tick-circle.svg')}}" alt="icon" />
                   </div>
                 </div>
               </div>
@@ -442,7 +442,7 @@
                 class="w-20 h-[90px] flex shrink-0 rounded-2xl overflow-hidden"
               >
                 <img
-                  src="assets/images/thumbnails/th7.png"
+                  src="{{asset('assets/images/thumbnails/th7.png')}}"
                   class="w-full h-full object-cover"
                   alt="thumbnail"
                 />
@@ -466,7 +466,7 @@
                     Putra Bangsa
                   </p>
                   <div class="flex shrink-0">
-                    <img src="assets/images/icons/tick-circle.svg" alt="icon" />
+                    <img src="{{asset('assets/images/icons/tick-circle.svg')}}" alt="icon" />
                   </div>
                 </div>
               </div>
@@ -483,7 +483,7 @@
           class="p-[14px_16px] flex items-center gap-[6px] rounded-full bg-[#FF7815]"
         >
           <div class="flex shrink-0">
-            <img src="assets/images/icons/heart.svg" alt="icon" />
+            <img src="{{asset('assets/images/icons/heart.svg')}}" alt="icon" />
           </div>
           <span class="font-semibold text-sm text-white">Discover</span>
         </a>
@@ -492,7 +492,7 @@
           class="flex items-center justify-center w-[56px] h-[52px] p-[14px_16px]"
         >
           <div class="flex shrink-0 w-6 h-6 overflow-hidden">
-            <img src="assets/images/icons/crown.svg" alt="icon" />
+            <img src="{{asset('assets/images/icons/crown.svg')}}" alt="icon" />
           </div>
         </a>
         <a
@@ -500,7 +500,7 @@
           class="flex items-center justify-center w-[56px] h-[52px] p-[14px_16px]"
         >
           <div class="flex shrink-0 w-6 h-6 overflow-hidden">
-            <img src="assets/images/icons/3dcube.svg" alt="icon" />
+            <img src="{{asset('assets/images/icons/3dcube.svg')}}" alt="icon" />
           </div>
         </a>
         <a
@@ -508,7 +508,7 @@
           class="flex items-center justify-center w-[56px] h-[52px] p-[14px_16px]"
         >
           <div class="flex shrink-0 w-6 h-6 overflow-hidden">
-            <img src="assets/images/icons/setting-2.svg" alt="icon" />
+            <img src="{{asset('assets/images/icons/setting-2.svg')}}" alt="icon" />
           </div>
         </a>
       </div>
@@ -521,8 +521,8 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="assets/js/flickity.pkgd.min.js"></script>
+    <script src="{{ asset('assets/js/flickity.pkgd.min.js')}}"></script>
 
-    <script src="main.js"></script>
+    <script src="{{ asset('js/main.js')}}"></script>
   </body>
 </html>
