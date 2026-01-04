@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="{{ asset('css/output.css') }}" rel="stylesheet" />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="{{asset('assets/images/icons/donasiku-logo.png')}}"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{asset('assets/js/flickity.min.css')}}" media="screen" />
-  </head>
-  <body class="font-poppins text-[#292E4B] bg-[#F6F9FC]">
-    <section
+@extends('front.layouts.app')
+
+@section('content')
+<section
       class="max-w-[640px] w-full min-h-screen mx-auto flex flex-col bg-white overflow-x-hidden pb-[134px]"
     >
       <div
@@ -513,8 +497,9 @@
         </a>
       </div>
     </section>
+    @endsection
 
-    <!-- JavaScript -->
+    {{--  <!-- JavaScript -->
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -525,4 +510,4 @@
 
     <script src="{{ asset('js/main.js')}}"></script>
   </body>
-</html>
+</html>  --}}
