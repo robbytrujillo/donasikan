@@ -1,5 +1,7 @@
 @extends('front.layouts.app')
 
+@section('title', 'Checkout | Donasikan');
+
 @section('content')
     <section class="max-w-[640px] w-full min-h-screen mx-auto flex flex-col bg-[#FCF7F1] overflow-x-hidden">
         <div class="header flex flex-col overflow-hidden h-[220px] relative">

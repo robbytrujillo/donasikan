@@ -1,5 +1,7 @@
 @extends('front.layouts.app')
 
+@section('title', 'Details | Donasikan')
+
 @section('content')
     <section class="max-w-[640px] w-full min-h-screen mx-auto flex flex-col bg-white overflow-x-hidden">
         <div class="header flex flex-col bg-[#56BBC5] overflow-hidden h-[350px] relative -mb-[92px]">
