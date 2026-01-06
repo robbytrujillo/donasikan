@@ -24,7 +24,7 @@ Route::get('/details/{fundraising:slug}', [FrontController::class, 'details'])
     ->name('front.details');
 
 Route::get('/support/{fundraising:slug}', [FrontController::class, 'support'])
-    ->name('front.category');
+    ->name('front.support');
 
 Route::get('/checkout/{fundraising:slug}/{totalAmountDonation}', [FrontController::class, 'checkout'])
     ->name('front.checkout');

@@ -22,4 +22,17 @@ class FrontController extends Controller
 
         return view('front.views.index', compact('categories', 'fundraisings'));
     }
+
+    public function category(Category $category) {
+        return view('front.views.category', compact('category'));
+    }
+
+    public function support(Fundraising $fundraising)
+    {
+        return view('front.views.support', compact('fundraising'));
+    }
+
+    public function details(Fundraising $fundraising) {
+        return view('front.views.details', compact('fundraising'));
+    }
 }

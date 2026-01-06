@@ -111,7 +111,7 @@
                 </div>
                 <progress
                   id="fund"
-                  value="32"
+                  value="{{ $fundraising->getPercentageAttribute() }}"
                   max="100"
                   class="w-full h-[6px] rounded-full overflow-hidden"
                 ></progress>
@@ -137,116 +137,52 @@
           >
         </div>
         <div class="flex flex-col gap-4 mt-[14px] px-4">
-          <a href="details.html" class="card">
-            <div
-              class="w-full border border-[#E8E9EE] flex items-center p-[14px] gap-3 rounded-2xl bg-white"
-            >
+
+          @forelse($fundraisings as $fundraising)
+            <a href="{{route('front.details', $fundraising) }}" class="card">
               <div
-                class="w-20 h-[90px] flex shrink-0 rounded-2xl overflow-hidden"
+                class="w-full border border-[#E8E9EE] flex items-center p-[14px] gap-3 rounded-2xl bg-white"
               >
-                <img
-                  src="{{asset('assets/images/thumbnails/th5.png')}}"
-                  class="object-cover w-full h-full"
-                  alt="thumbnail"
-                />
-              </div>
-              <div class="flex flex-col gap-1">
-                <p class="font-bold line-clamp-1 hover:line-clamp-none">
-                  Operasi Ginjal Kanan
-                </p>
-                <p class="text-xs leading-[18px]">
-                  Target
-                  <span class="font-bold text-[#FF7815]">Rp 55.000.000</span>
-                </p>
                 <div
-                  class="flex items-center gap-1 sm:flex-row-reverse sm:justify-end"
+                  class="w-20 h-[90px] flex shrink-0 rounded-2xl overflow-hidden"
                 >
-                  <p
-                    class="font-semibold sm:font-medium text-xs leading-[18px]"
-                  >
-                    Putra Bangsa
+                  <img
+                    src="{{ Storage::url($fundraising->thumbnail) }}"
+                    class="object-cover w-full h-full"
+                    alt="thumbnail"
+                  />
+                </div>
+                <div class="flex flex-col gap-1">
+                  <p class="font-bold line-clamp-1 hover:line-clamp-none">
+                    {{ $fundraising->name }}
                   </p>
-                  <div class="flex shrink-0">
-                    <img src="{{asset('assets/images/icons/tick-circle.svg')}}" alt="icon" />
+                  <p class="text-xs leading-[18px]">
+                    Target
+                    <span class="font-bold text-[#FF7815]">
+                      Rp {{ number_format($fundraising->target_amount, 0, ',', '.') }}
+                    </span>
+                  </p>
+                  <div
+                    class="flex items-center gap-1 sm:flex-row-reverse sm:justify-end"
+                  >
+                    <p
+                      class="font-semibold sm:font-medium text-xs leading-[18px]"
+                    >
+                      {{ $fundraising->fundraiser->user->name }}
+                    </p>
+                    <div class="flex shrink-0">
+                      <img src="{{asset('assets/images/icons/tick-circle.svg')}}" alt="icon" />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </a>
-          <a href="details.html" class="card">
-            <div
-              class="w-full border border-[#E8E9EE] flex items-center p-[14px] gap-3 rounded-2xl bg-white"
-            >
-              <div
-                class="w-20 h-[90px] flex shrink-0 rounded-2xl overflow-hidden"
-              >
-                <img
-                  src="{{asset('assets/images/thumbnails/th6.png')}}"
-                  class="object-cover w-full h-full"
-                  alt="thumbnail"
-                />
-              </div>
-              <div class="flex flex-col gap-1">
-                <p class="font-bold line-clamp-1 hover:line-clamp-none">
-                  Buku Edukasi Peduli Anak lorem ipsum
-                </p>
-                <p class="text-xs leading-[18px]">
-                  Target
-                  <span class="font-bold text-[#FF7815]">Rp 800.000.000</span>
-                </p>
-                <div
-                  class="flex items-center gap-1 sm:flex-row-reverse sm:justify-end"
-                >
-                  <p
-                    class="font-semibold sm:font-medium text-xs leading-[18px]"
-                  >
-                    Putra Bangsa
-                  </p>
-                  <div class="flex shrink-0">
-                    <img src="{{asset('assets/images/icons/tick-circle.svg')}}" alt="icon" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a href="details.html" class="card">
-            <div
-              class="w-full border border-[#E8E9EE] flex items-center p-[14px] gap-3 rounded-2xl bg-white"
-            >
-              <div
-                class="w-20 h-[90px] flex shrink-0 rounded-2xl overflow-hidden"
-              >
-                <img
-                  src="{{asset('assets/images/thumbnails/th7.png')}}"
-                  class="object-cover w-full h-full"
-                  alt="thumbnail"
-                />
-              </div>
-              <div class="flex flex-col gap-1">
-                <p class="font-bold line-clamp-1 hover:line-clamp-none">
-                  Bangun Desa Angga
-                </p>
-                <p class="text-xs leading-[18px]">
-                  Target
-                  <span class="font-bold text-[#FF7815]"
-                    >Rp 18.500.000.000</span
-                  >
-                </p>
-                <div
-                  class="flex items-center gap-1 sm:flex-row-reverse sm:justify-end"
-                >
-                  <p
-                    class="font-semibold sm:font-medium text-xs leading-[18px]"
-                  >
-                    Putra Bangsa
-                  </p>
-                  <div class="flex shrink-0">
-                    <img src="{{asset('assets/images/icons/tick-circle.svg')}}" alt="icon" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
+            </a>
+          @empty
+            <p>
+              Belum ada fundraising tersedia.
+            </p>
+          @endforelse
+          
         </div>
       </div>
       <div
