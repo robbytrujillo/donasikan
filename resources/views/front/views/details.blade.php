@@ -8,7 +8,7 @@
             <nav class="relative z-20 flex items-center justify-between px-3 pt-5">
                 <div class="flex items-center gap-[10px]">
                     <a href="index.html" class="flex w-10 h-10 shrink-0">
-                        <img src="assets/images/icons/back.svg" alt="icon">
+                        <img src="{{asset('assets/images/icons/back.svg')}}" alt="icon">
                     </a>
                 </div>
                 <div class="flex flex-col items-center text-center">
@@ -16,18 +16,18 @@
                     <p class="text-sm font-semibold text-white">#WeNeedHelp</p>
                 </div>
                 <a href="" class="flex w-10 h-10 shrink-0">
-                    <img src="assets/images/icons/like.svg" alt="icon">
+                    <img src="{{asset('assets/images/icons/like.svg')}}" alt="icon">
                 </a>
             </nav>
             <div class="absolute w-full h-full overflow-hidden bg-white">
                 <div class="w-full h-[266px] bg-gradient-to-b from-black/90 to-[#080925]/0 absolute z-10"></div>
-                <img src="assets/images/thumbnails/th4.png" class="object-cover w-full h-full" alt="cover">
+                <img src="{{asset('assets/images/thumbnails/th4.png')}}" class="object-cover w-full h-full" alt="cover">
             </div>
         </div>
         <div class="z-30 flex flex-col">
             <div id="status" class="w-full h-[92px] bg-[#FF7815] rounded-t-[40px] pt-3 pb-[50px] flex gap-2 justify-center items-center -mb-[38px]">
                 <div class="w-[30px] h-[30px] flex shrink-0">
-                    <img src="assets/images/icons/lovely.svg" alt="icon">
+                    <img src="{{asset('assets/images/icons/lovely.svg')}}" alt="icon">
                 </div>
                 <p class="text-sm font-semibold text-white">Everyone deserves your best help</p>
             </div>
@@ -37,12 +37,12 @@
                     <h1 class="font-extrabold text-[26px] leading-[39px]">Perbaikan Kebakaran Alam Hutani Perlidanita</h1>
                     <div class="flex items-center gap-2">
                         <div class="flex overflow-hidden rounded-full w-9 h-9 shrink-0">
-                            <img src="assets/images/photos/photo.png" class="object-cover w-full h-full" alt="photo">
+                            <img src="{{asset('assets/images/photos/photo.png')}}" class="object-cover w-full h-full" alt="photo">
                         </div>
                         <div class="flex items-center gap-1">
                             <p class="text-sm font-semibold">Angga Risky</p>
                             <div class="flex shrink-0">
-                                <img src="assets/images/icons/tick-circle.svg" alt="icon">
+                                <img src="{{asset('assets/images/icons/tick-circle.svg')}}" alt="icon">
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                     <div class="flex flex-col gap-4">
                         <div class="flex items-center gap-3">
                             <div class="w-[50px] h-[50px] flex shrink-0 rounded-full overflow-hidden">
-                                <img src="assets/images/photos/avatar-default.svg" class="object-cover w-full h-full" alt="avatar">
+                                <img src="{{asset('assets/images/photos/avatar-default.svg')}}" class="object-cover w-full h-full" alt="avatar">
                             </div>
                             <div class="flex flex-col gap-[2px] w-full">
                                 <div class="flex items-center justify-between">
@@ -80,7 +80,7 @@
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-[50px] h-[50px] flex shrink-0 rounded-full overflow-hidden">
-                                <img src="assets/images/photos/avatar-default.svg" class="object-cover w-full h-full" alt="avatar">
+                                <img src="{{asset('assets/images/photos/avatar-default.svg')}}" class="object-cover w-full h-full" alt="avatar">
                             </div>
                             <div class="flex flex-col gap-[2px] w-full">
                                 <div class="flex items-center justify-between">
@@ -92,7 +92,7 @@
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-[50px] h-[50px] flex shrink-0 rounded-full overflow-hidden">
-                                <img src="assets/images/photos/avatar-default.svg" class="object-cover w-full h-full" alt="avatar">
+                                <img src="{{asset('assets/images/photos/avatar-default.svg')}}" class="object-cover w-full h-full" alt="avatar">
                             </div>
                             <div class="flex flex-col gap-[2px] w-full">
                                 <div class="flex items-center justify-between">
@@ -104,7 +104,7 @@
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-[50px] h-[50px] flex shrink-0 rounded-full overflow-hidden">
-                                <img src="assets/images/photos/avatar-default.svg" class="object-cover w-full h-full" alt="avatar">
+                                <img src="{{asset('assets/images/photos/avatar-default.svg')}}" class="object-cover w-full h-full" alt="avatar">
                             </div>
                             <div class="flex flex-col gap-[2px] w-full">
                                 <div class="flex items-center justify-between">
@@ -116,7 +116,7 @@
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-[50px] h-[50px] flex shrink-0 rounded-full overflow-hidden">
-                                <img src="assets/images/photos/avatar-default.svg" class="object-cover w-full h-full" alt="avatar">
+                                <img src="{{asset('assets/images/photos/avatar-default.svg')}}" class="object-cover w-full h-full" alt="avatar">
                             </div>
                             <div class="flex flex-col gap-[2px] w-full">
                                 <div class="flex items-center justify-between">

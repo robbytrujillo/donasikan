@@ -33,6 +33,8 @@ class FrontController extends Controller
     }
 
     public function details(Fundraising $fundraising) {
+        $goalReached = $fundraising->totalReachedAmount() >= $fundraising->target_amount;
+
         return view('front.views.details', compact('fundraising'));
     }
 }
