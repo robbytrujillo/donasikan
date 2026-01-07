@@ -37,10 +37,10 @@
                     <div class="flex flex-col gap-[10px]">
                         <p class="text-sm font-semibold">Your Donation</p>
                         <div class="bg-[#E8E9EE] w-full flex items-center rounded-2xl p-[14px_16px] gap-[10px]">
-                            <div class="flex w-6 h-6 shrink-0">
+                            {{--  <div class="flex w-6 h-6 shrink-0">
                                 <img src="{{asset('assets/images/icons/dollar-circle.svg')}}" alt="icon">
-                            </div>
-                            <p class="font-semibold">Rp 1.000.000</p>
+                            </div>  --}}
+                            <p class="font-semibold">Rp {{ number_format($totalAmountDonation, 0, ',', '.') }}</p>
                         </div>
                         <input type="hidden" id="amount" name="amount" value="1000000">
                     </div>
