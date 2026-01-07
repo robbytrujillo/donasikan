@@ -1,13 +1,13 @@
 @extends('front.layouts.app')
 
-@section('title', 'Donation | Donasikan')
+@section('title', 'Send Your Donation')
 
 @section('content')
     <section class="max-w-[640px] w-full min-h-screen mx-auto flex flex-col bg-[#FCF7F1] overflow-x-hidden">
         <div class="header flex flex-col overflow-hidden h-[220px] relative">
             <nav class="relative z-20 flex items-center justify-between px-3 pt-5">
                 <div class="flex items-center gap-[10px]">
-                    <a href="index.html" class="flex w-10 h-10 shrink-0">
+                    <a href="{{ route('front.index') }}" class="flex w-10 h-10 shrink-0">
                         <img src="{{asset('assets/images/icons/back.svg')}}" alt="icon">
                     </a>
                 </div>
@@ -35,37 +35,37 @@
             <div id="content" class="w-full min-h-[calc(100vh-220px)] h-full bg-white rounded-t-[40px] flex flex-col gap-[30px] p-[30px_24px_30px]">
                 <h1 class="text-center font-extrabold text-[24px] leading-[36px]">Choose Amount <br>You Want to Donate</h1>
                 <div class="grid grid-cols-2 w-fit mx-auto justify-center gap-[30px]">
-                    <a href="checkout.html" class="w-[150px] flex flex-col gap-4 p-4 rounded-[30px] border border-[#E8E9EE] items-center">
+                    <a href="{{ route('front.checkout', ['fundraising' => $fundraising->slug, 'totalAmountDonation' => 15000]) }}" class="w-[150px] flex flex-col gap-4 p-4 rounded-[30px] border border-[#E8E9EE] items-center">
                         <div class="flex w-10 h-10 overflow-hidden shrink-0">
                             <img src="{{asset('assets/images/icons/cool.svg')}}" alt="icon">
                         </div>
                         <span class="text-lg font-bold">Rp 15.000</span>
                     </a>
-                    <a href="checkout.html" class="w-[150px] flex flex-col gap-4 p-4 rounded-[30px] border border-[#E8E9EE] items-center">
+                    <a href="{{ route('front.checkout', ['fundraising' => $fundraising->slug, 'totalAmountDonation' => 50000]) }}" class="w-[150px] flex flex-col gap-4 p-4 rounded-[30px] border border-[#E8E9EE] items-center">
                         <div class="flex w-10 h-10 overflow-hidden shrink-0">
                             <img src="{{asset('assets/images/icons/smile.svg')}}" alt="icon">
                         </div>
                         <span class="text-lg font-bold">Rp 50.000</span>
                     </a>
-                    <a href="checkout.html" class="w-[150px] flex flex-col gap-4 p-4 rounded-[30px] border border-[#E8E9EE] items-center">
+                    <a href="{{ route('front.checkout', ['fundraising' => $fundraising->slug, 'totalAmountDonation' => 250000]) }}" class="w-[150px] flex flex-col gap-4 p-4 rounded-[30px] border border-[#E8E9EE] items-center">
                         <div class="flex w-10 h-10 overflow-hidden shrink-0">
                             <img src="{{asset('assets/images/icons/love.svg')}}" alt="icon">
                         </div>
                         <span class="text-lg font-bold">Rp 250.000</span>
                     </a>
-                    <a href="checkout.html" class="w-[150px] flex flex-col gap-4 p-4 rounded-[30px] border border-[#E8E9EE] items-center">
+                    <a href="{{ route('front.checkout', ['fundraising' => $fundraising->slug, 'totalAmountDonation' => 500000]) }}" class="w-[150px] flex flex-col gap-4 p-4 rounded-[30px] border border-[#E8E9EE] items-center">
                         <div class="flex w-10 h-10 overflow-hidden shrink-0">
                             <img src="{{asset('assets/images/icons/cool.svg')}}" alt="icon">
                         </div>
                         <span class="text-lg font-bold">Rp 500.000</span>
                     </a>
-                    <a href="checkout.html" class="w-[150px] flex flex-col gap-4 p-4 rounded-[30px] border border-[#E8E9EE] items-center">
+                    <a href="{{ route('front.checkout', ['fundraising' => $fundraising->slug, 'totalAmountDonation' => 700000]) }}" class="w-[150px] flex flex-col gap-4 p-4 rounded-[30px] border border-[#E8E9EE] items-center">
                         <div class="flex w-10 h-10 overflow-hidden shrink-0">
                             <img src="{{asset('assets/images/icons/smile.svg')}}" alt="icon">
                         </div>
                         <span class="text-lg font-bold">Rp 700.000</span>
                     </a>
-                    <a href="checkout.html" class="w-[150px] flex flex-col gap-4 p-4 rounded-[30px] border border-[#E8E9EE] items-center">
+                    <a href="{{ route('front.checkout', ['fundraising' => $fundraising->slug, 'totalAmountDonation' => 1000000]) }}" class="w-[150px] flex flex-col gap-4 p-4 rounded-[30px] border border-[#E8E9EE] items-center">
                         <div class="flex w-10 h-10 overflow-hidden shrink-0">
                             <img src="{{asset('assets/images/icons/love.svg')}}" alt="icon">
                         </div>
