@@ -23,7 +23,7 @@
         <div class="flex flex-col gap-4 px-4">
             
             @forelse ($category->fundraisings as $fundraising)
-                <a href="{{ route('front.details') }}" class="card">
+                <a href="{{ route('front.details', $fundraising) }}" class="card">
                     <div class="w-full flex items-center p-[14px] gap-3 rounded-2xl bg-white">
                         <div class="w-20 h-[90px] flex shrink-0 rounded-2xl overflow-hidden">
                             <img src="{{ Storage::url($fundraising->thumbnail) }}" class="object-cover w-full h-full" alt="thumbnail">
