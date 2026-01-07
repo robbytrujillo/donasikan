@@ -8,24 +8,26 @@
             <nav class="relative z-20 flex items-center justify-between px-3 pt-5">
                 <div class="flex items-center gap-[10px]">
                     <a href="details.html" class="flex w-10 h-10 shrink-0">
-                        <img src="assets/images/icons/back.svg" alt="icon">
+                        <img src="{{asset('assets/images/icons/back.svg')}}" alt="icon">
                     </a>
                 </div>
                 <div class="flex flex-col items-center text-center">
                     <p class="text-sm font-semibold">#SendSupport</p>
                 </div>
                 <a href="" class="flex w-10 h-10 shrink-0">
-                    <img src="assets/images/icons/menu-dot.svg" alt="icon">
+                    <img src="{{asset('assets/images/icons/menu-dot.svg')}}" alt="icon">
                 </a>
             </nav>
             <div class="flex items-center px-4 my-auto gap-[14px]">
                 <div class="w-[90px] h-[100px] flex shrink-0 rounded-2xl overflow-hidden relative">
-                    <img src="assets/images/thumbnails/th4.png" class="object-cover w-full h-full" alt="thumbnail">
+                    <img src="{{Storage::url($fundraising->thumbnail)}}" class="object-cover w-full h-full" alt="thumbnail">
                     <p class="w-[90px] h-[23px] bg-[#4541FF] text-center p-[4px_12px] absolute bottom-0 font-bold text-[10px] leading-[15px] text-white">VERIFIED</p>
                 </div>
                 <div class="flex flex-col gap-1">
-                    <p class="font-bold">Perbaikan Kebakaran Alam Hutani Perlidanita</p>
-                    <p class="text-xs leading-[18px]">Target <span class="font-bold text-[#FF7815]">Rp 12.000.000</span></p>
+                    <p class="font-bold">{{ $fundraising->name }}</p>
+                    <p class="text-xs leading-[18px]">Target <span class="font-bold text-[#FF7815]">
+                        Rp {{ number_format($fundraising->target_amount, 0, ',', '.') }}
+                    </span></p>
                 </div>
             </div>
         </div>
@@ -36,7 +38,7 @@
                         <p class="text-sm font-semibold">Your Donation</p>
                         <div class="bg-[#E8E9EE] w-full flex items-center rounded-2xl p-[14px_16px] gap-[10px]">
                             <div class="flex w-6 h-6 shrink-0">
-                                <img src="assets/images/icons/dollar-circle.svg" alt="icon">
+                                <img src="{{asset('assets/images/icons/dollar-circle.svg')}}" alt="icon">
                             </div>
                             <p class="font-semibold">Rp 1.000.000</p>
                         </div>
@@ -48,10 +50,10 @@
                         <div class="w-full p-4 rounded-2xl border border-[#E8E9EE]">
                             <button type="button" class="flex items-center justify-between w-full accordion-button" data-accordion="accordion-faq-1">
                                 <div class="flex h-6 overflow-hidden shrink-0">
-                                    <img src="assets/images/icons/Bank_Central_Asia.webp" class="object-contain" alt="icon">
+                                    <img src="{{asset('assets/images/icons/Bank_Central_Asia.webp')}}" class="object-contain" alt="icon">
                                 </div>
                                 <div class="flex w-5 h-5 transition-all duration-300 arrow shrink-0">
-                                    <img src="assets/images/icons/arrow-down.svg" class="" alt="icon">
+                                    <img src="{{asset('assets/images/icons/arrow-down.svg')}}" class="" alt="icon">
                                 </div>
                             </button>
                             <div id="accordion-faq-1" class="accordion-content open">
@@ -80,7 +82,7 @@
                         <p class="text-sm font-semibold">Your Name</p>
                         <div class="flex items-center w-full p-[14px_16px] rounded-2xl border border-[#E8E9EE] focus-within:border-[#292E4B] transition-all duration-300">
                             <div class="mr-[10px] w-6 h-6 flex items-center justify-center overflow-hidden">
-                                <img src="assets/images/icons/user.svg" class="object-contain w-full h-full" alt="icon">
+                                <img src="{{asset('assets/images/icons/user.svg')}}" class="object-contain w-full h-full" alt="icon">
                             </div>
                             <input type="text" class="font-semibold placeholder:text-[#292E4B] placeholder:font-normal w-full outline-none" placeholder="What’s your name?" name="name">
                         </div>
@@ -89,7 +91,7 @@
                         <p class="text-sm font-semibold">No. WhatsApp</p>
                         <div class="flex items-center w-full p-[14px_16px] rounded-2xl border border-[#E8E9EE] focus-within:border-[#292E4B] transition-all duration-300">
                             <div class="mr-[10px] w-6 h-6 flex items-center justify-center overflow-hidden">
-                                <img src="assets/images/icons/call.svg" class="object-contain w-full h-full" alt="icon">
+                                <img src="{{asset('assets/images/icons/call.svg')}}" class="object-contain w-full h-full" alt="icon">
                             </div>
                             <input type="number" class="font-semibold placeholder:text-[#292E4B] placeholder:font-normal w-full outline-none" placeholder="Write phone number" name="phone">
                         </div>
@@ -99,7 +101,7 @@
                         <div class="relative">
                             <button type="button" class="p-[14px_16px] rounded-2xl flex gap-[10px] w-full border border-[#E8E9EE] focus-within:border-[#292E4B] transition-all duration-300" onclick="document.getElementById('file').click()">
                                 <div class="flex w-6 h-6 shrink-0">
-                                    <img src="assets/images/icons/receipt-text.svg" alt="icon">
+                                    <img src="{{asset('assets/images/icons/receipt-text.svg')}}" alt="icon">
                                 </div>
                                 <p id="fileLabel">Add an attachment</p>
                             </button>
@@ -110,7 +112,7 @@
                         <p class="text-sm font-semibold">Your Notes</p>
                         <div class="flex w-full p-[14px_16px] rounded-2xl border border-[#E8E9EE] focus-within:border-[#292E4B] transition-all duration-300">
                             <div class="mr-[10px] w-6 h-6 flex items-center justify-center overflow-hidden">
-                                <img src="assets/images/icons/sms.svg" class="object-contain w-full h-full" alt="icon">
+                                <img src="{{asset('assets/images/icons/sms.svg')}}" class="object-contain w-full h-full" alt="icon">
                             </div>
                             <textarea name="notes" id="notes" class="font-semibold placeholder:text-[#292E4B] placeholder:font-normal w-full outline-none" cols="30" rows="4" placeholder="Write your beautiful message"></textarea>
                         </div>
