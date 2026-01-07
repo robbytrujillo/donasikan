@@ -42,5 +42,4 @@ class FrontController extends Controller
     {
         return view('front.views.checkout', compact('fundraising', 'totalAmountDonation'));
     }
-
 }
