@@ -83,7 +83,7 @@
                     <p class="desc-less text-sm leading-[26px]">{{ $fundraising->about }}</p>
                 <div class="flex flex-col gap-3">
                     <div class="flex items-center justify-between">
-                        <h2 class="text-sm font-semibold">Supporters (18,309)</h2>
+                        <h2 class="text-sm font-semibold">Supporters ({{ $fundraising->donaturs->count() }})</h2>
                         <a href="" class="p-[6px_12px] rounded-full bg-[#E8E9EE] font-semibold text-sm">View All</a>
                     </div>
                     <div class="flex flex-col gap-4">
