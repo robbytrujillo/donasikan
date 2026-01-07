@@ -7,7 +7,7 @@
         <div class="header flex flex-col bg-[#56BBC5] overflow-hidden h-[350px] relative -mb-[92px]">
             <nav class="relative z-20 flex items-center justify-between px-3 pt-5">
                 <div class="flex items-center gap-[10px]">
-                    <a href="index.html" class="flex w-10 h-10 shrink-0">
+                    <a href="{{ route('front.index') }}" class="flex w-10 h-10 shrink-0">
                         <img src="{{asset('assets/images/icons/back.svg')}}" alt="icon">
                     </a>
                 </div>
@@ -25,15 +25,32 @@
             </div>
         </div>
         <div class="z-30 flex flex-col">
-            <div id="status" class="w-full h-[92px] bg-[#FF7815] rounded-t-[40px] pt-3 pb-[50px] flex gap-2 justify-center items-center -mb-[38px]">
-                <div class="w-[30px] h-[30px] flex shrink-0">
-                    <img src="{{asset('assets/images/icons/lovely.svg')}}" alt="icon">
+            
+            @if ($fundraising->has_finished)
+                <div id="status" class="w-full h-[92px] bg-[#76AE43] rounded-t-[40px] pt-3 pb-[50px] flex gap-2 justify-center items-center -mb-[38px]">
+                    <div class="w-[30px] h-[30px] flex shrink-0">
+                        <img src="{{ asset('assets/images/icons/lovely.svg') }}" alt="icon">
+                    </div>
+                    <p class="text-sm font-semibold text-white">This Fundraising has been finished</p>
                 </div>
-                <p class="text-sm font-semibold text-white">Everyone deserves your best help</p>
-            </div>
+            @else
+                <div id="status" class="w-full h-[92px] bg-[#FF7815] rounded-t-[40px] pt-3 pb-[50px] flex gap-2 justify-center items-center -mb-[38px]">
+                    <div class="w-[30px] h-[30px] flex shrink-0">
+                        <img src="{{asset('assets/images/icons/lovely.svg')}}" alt="icon">
+                    </div>
+                    <p class="text-sm font-semibold text-white">Everyone deserves your best help</p>
+                </div>
+            @endif
+            
             <div id="content" class="w-full bg-white rounded-t-[40px] flex flex-col gap-5 p-[30px_24px_120px]">
                 <div class="flex flex-col gap-[10px]">
-                    <p class="badge bg-[#40BCD9] rounded-full p-[6px_12px] font-bold text-xs text-white w-fit leading-[18px]">IN PROGRESS</p>
+                    
+                    @if ($fundraising->has_finished)
+                        <p class="badge bg-[#76AE43] rounded-full p-[6px_12px] font-bold text-xs text-white w-fit leading-[18px]">FINISHED</p>
+                    @else
+                        <p class="badge bg-[#40BCD9] rounded-full p-[6px_12px] font-bold text-xs text-white w-fit leading-[18px]">IN PROGRESS</p>
+                    @endif
+
                     <h1 class="font-extrabold text-[26px] leading-[39px]">{{ $fundraising->name }}</h1>
                     <div class="flex items-center gap-2">
                         <div class="flex overflow-hidden rounded-full w-9 h-9 shrink-0">
