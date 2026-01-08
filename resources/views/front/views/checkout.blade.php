@@ -118,7 +118,7 @@
                             <textarea name="notes" id="notes" class="font-semibold placeholder:text-[#292E4B] placeholder:font-normal w-full outline-none" cols="30" rows="4" placeholder="Write your beautiful message"></textarea>
                         </div>
                     </div>
-                    <a href="donation-finished.html" class="p-[14px_20px] bg-[#76AE43] rounded-full text-white w-full mx-auto font-semibold hover:shadow-[0_12px_20px_0_#76AE4380] transition-all duration-300 text-nowrap text-center">Confirm My Donation</a>
+                    <button type="submit" class="p-[14px_20px] bg-[#76AE43] rounded-full text-white w-full mx-auto font-semibold hover:shadow-[0_12px_20px_0_#76AE4380] transition-all duration-300 text-nowrap text-center">Confirm My Donation</button>
                 </form>
             </div>
         </div>
