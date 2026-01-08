@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreDonationRequest;
 use App\Models\Category;
 use App\Models\Fundraising;
 use Illuminate\Http\Request;
@@ -41,5 +42,9 @@ class FrontController extends Controller
     public function checkout(Fundraising $fundraising, $totalAmountDonation)
     {
         return view('front.views.checkout', compact('fundraising', 'totalAmountDonation'));
+    }
+
+    public function store(StoreDonationRequest $request, Fundraising $fundraising, $totalAmountDonation) {
+        
     }
 }
