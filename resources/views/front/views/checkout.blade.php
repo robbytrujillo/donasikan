@@ -7,7 +7,7 @@
         <div class="header flex flex-col overflow-hidden h-[220px] relative">
             <nav class="relative z-20 flex items-center justify-between px-3 pt-5">
                 <div class="flex items-center gap-[10px]">
-                    <a href="{{ route('front.details', $fundraising) }}" class="flex w-10 h-10 shrink-0">
+                    <a href="{{ route('front.support', $fundraising->slug) }}" class="flex w-10 h-10 shrink-0">
                         <img src="{{asset('assets/images/icons/back.svg')}}" alt="icon">
                     </a>
                 </div>
@@ -33,7 +33,8 @@
         </div>
         <div class="z-30 flex flex-col">
             <div id="content" class="w-full min-h-[calc(100vh-220px)] h-full bg-white rounded-t-[40px] flex flex-col gap-5 p-[30px_24px_30px]">
-                <form action="" class="flex flex-col gap-5">
+                <form action="{{ route('front.store', ['fundraising' => $fundraising->slug, 'totalAmountDonation' => $totalAmountDonation]) }}" class="flex flex-col gap-5" enctype="multipart/form-data">
+                    @csrf
                     <div class="flex flex-col gap-[10px]">
                         <p class="text-sm font-semibold">Your Donation</p>
                         <div class="bg-[#E8E9EE] w-full flex items-center rounded-2xl p-[14px_16px] gap-[10px]">
@@ -93,7 +94,7 @@
                             <div class="mr-[10px] w-6 h-6 flex items-center justify-center overflow-hidden">
                                 <img src="{{asset('assets/images/icons/call.svg')}}" class="object-contain w-full h-full" alt="icon">
                             </div>
-                            <input type="number" class="font-semibold placeholder:text-[#292E4B] placeholder:font-normal w-full outline-none" placeholder="Write phone number" name="phone">
+                            <input type="number" class="font-semibold placeholder:text-[#292E4B] placeholder:font-normal w-full outline-none" placeholder="Write phone number" name="phone_number">
                         </div>
                     </div>
                     <div class="flex flex-col gap-[10px]">
@@ -105,7 +106,7 @@
                                 </div>
                                 <p id="fileLabel">Add an attachment</p>
                             </button>
-                            <input id="file" type="file" name="file" class="hidden" onchange="updateFileName(this)">
+                            <input id="file" type="file" name="proof" class="hidden" onchange="updateFileName(this)">
                         </div>
                     </div>
                     <div class="flex flex-col gap-[10px]">
