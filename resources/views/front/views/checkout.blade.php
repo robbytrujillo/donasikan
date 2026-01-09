@@ -33,7 +33,7 @@
         </div>
         <div class="z-30 flex flex-col">
             <div id="content" class="w-full min-h-[calc(100vh-220px)] h-full bg-white rounded-t-[40px] flex flex-col gap-5 p-[30px_24px_30px]">
-                <form action="{{ route('front.store', ['fundraising' => $fundraising->slug, 'totalAmountDonation' => $totalAmountDonation]) }}" class="flex flex-col gap-5" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('front.store', ['fundraising' => $fundraising->slug, 'totalAmountDonation' => $totalAmountDonation]) }}" class="flex flex-col gap-5" enctype="multipart/form-data">
                     @csrf
                     <div class="flex flex-col gap-[10px]">
                         <p class="text-sm font-semibold">Your Donation</p>

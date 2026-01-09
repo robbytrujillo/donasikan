@@ -27,7 +27,7 @@
           <h1
             class="font-extrabold text-2xl leading-[36px] text-white text-center"
           >
-            Help Other People.<br />Life Becomes Happier.
+            Help Other People.<br />Life Becomes More Blessed.
           </h1>
         </div>
         <div class="w-full h-fit overflow-hidden -mt-[33px]">
